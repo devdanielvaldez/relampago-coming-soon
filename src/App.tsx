@@ -42,6 +42,8 @@ function App() {
           'consumerSecret': 'HfS2TogWtxVLIzrdwhD9cpXKslOUjAaP'
         },
         body: JSON.stringify({ 
+          "authuser": "ingdanielvadez@gmail.com",
+          "authpass": "jjlq iwiz irgj crak",
           from: 'no-reply@relampagoexpress.com',
           to: email,
           content: getUserTypeContent(userType, email),
