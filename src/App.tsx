@@ -34,7 +34,6 @@ function App() {
 
     setIsSubmitting(true);
     try {
-      // Llamando a nuestra API para enviar emails por SMTP
       const response = await fetch('https://api.turbo-smtp.com/api/v2/mail/send', {
         method: 'POST',
         headers: {
