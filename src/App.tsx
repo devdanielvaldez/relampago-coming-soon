@@ -112,7 +112,7 @@ function App() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              RelampagoExpress
+              Relampago Express
             </motion.span>
           </div>
           
