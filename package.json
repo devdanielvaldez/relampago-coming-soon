@@ -10,10 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-email/components": "^0.0.41",
     "@supabase/supabase-js": "^2.39.7",
     "framer-motion": "^11.0.8",
     "lucide-react": "^0.344.0",
-    "nodemailer": "^6.9.12",
+    "nodemailer": "^6.10.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "smtpexpress": "^0.0.15"

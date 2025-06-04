@@ -34,44 +34,60 @@ function App() {
 
     setIsSubmitting(true);
     try {
-
-      await smtpexpressClient.sendApi.sendMail({
-        // Subject of the email
-        subject: `Nuevo cliente registrado en Relampago - ${userType}`,
-        // Body of the email
-        message: `<h2>Nuevo interesado de tipo: ${userType}, su email es: ${email}</h2>`,
-        // Sender's details
-        sender: {
-          // Sender's name
-          name: "Relampago Express",
-          // Sender's email address
-          email: "relampago-15fecc@smtpexpress.email",
+      // Llamando a nuestra API para enviar emails por SMTP
+      const response = await fetch('https://api.turbo-smtp.com/api/v2/mail/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'consumerKey': 'f3e89e82897d45e9be1dff1f21bde71f',
+          'consumerSecret': 'HfS2TogWtxVLIzrdwhD9cpXKslOUjAaP'
         },
-        // Recipient's details
-        recipients: {
-          // Recipient's email address (obtained from the form)
-          email: "blackcroworiginalrd@gmail.com",
-        },
+        body: JSON.stringify({ 
+          from: 'no-reply@relampagoexpress.com',
+          to: email,
+          content: getUserTypeContent(userType, email),
+          html_content: `<p>${getUserTypeContent(userType, email)}</p>`,
+          subject: '¡Bienvenido a RelampagoExpress!',
+        }),
       });
 
-      await smtpexpressClient.sendApi.sendMail({
-        // Subject of the email
-        subject: `Bienvenido a Relampago Express`,
-        // Body of the email
-        message: `<h2>${getUserTypeContent(userType, email)}</h2>`,
-        // Sender's details
-        sender: {
-          // Sender's name
-          name: "Relampago Express",
-          // Sender's email address
-          email: "relampago-15fecc@smtpexpress.email",
-        },
-        // Recipient's details
-        recipients: {
-          // Recipient's email address (obtained from the form)
-          email: email,
-        },
-      });
+      // await smtpexpressClient.sendApi.sendMail({
+      //   // Subject of the email
+      //   subject: `Nuevo cliente registrado en Relampago - ${userType}`,
+      //   // Body of the email
+      //   message: `<h2>Nuevo interesado de tipo: ${userType}, su email es: ${email}</h2>`,
+      //   // Sender's details
+      //   sender: {
+      //     // Sender's name
+      //     name: "Relampago Express",
+      //     // Sender's email address
+      //     email: "relampago-15fecc@smtpexpress.email",
+      //   },
+      //   // Recipient's details
+      //   recipients: {
+      //     // Recipient's email address (obtained from the form)
+      //     email: "hello@daniel-valdez.com",
+      //   },
+      // });
+
+      // await smtpexpressClient.sendApi.sendMail({
+      //   // Subject of the email
+      //   subject: `Bienvenido a Relampago Express`,
+      //   // Body of the email
+      //   message: `<h2>${getUserTypeContent(userType, email)}</h2>`,
+      //   // Sender's details
+      //   sender: {
+      //     // Sender's name
+      //     name: "Relampago Express",
+      //     // Sender's email address
+      //     email: "relampago-15fecc@smtpexpress.email",
+      //   },
+      //   // Recipient's details
+      //   recipients: {
+      //     // Recipient's email address (obtained from the form)
+      //     email: email,
+      //   },
+      // });
       
       setSuccess(true);
       setEmail('');
