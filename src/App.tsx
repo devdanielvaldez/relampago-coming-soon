@@ -8,9 +8,9 @@ import selectLocationImage from './assets/SelectYourLocation.png';
 
 // Configuración de los colores corporativos
 const colors = {
-  primary: '#DA291C',    // Rojo corporativo
+  primary: '#000000',    // Rojo corporativo
   secondary: '#FFCC00',  // Amarillo corporativo
-  black: '#000000',      // Negro
+  black: '#DA291C',      // Negro
   white: '#FFFFFF'       // Blanco
 };
 
